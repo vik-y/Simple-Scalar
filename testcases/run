@@ -1,0 +1,3 @@
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1
+cat $2 | grep il1
+cat $2 | grep il2
