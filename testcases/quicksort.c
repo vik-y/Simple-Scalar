@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void swap( int* a, int* b )
 {
 	int t = *a;
@@ -35,23 +34,16 @@ void quickSort(int A[], int l, int h)
 	}
 }
 
-int main(){
-
-	int arr[1000000], i, j;
-
-
+int main(int argc, char**argv){
+	int RANGE = atoi(argv[1]);
+	int arr[RANGE], i, j;
 
 
-	for(i=0;i<1000000;i++){
+	for(i=0;i<RANGE;i++){
 		arr[i] = rand()%1000000;
 	}
-	for(i=0;i<100;i++){
-		printf("%d\n", arr[i]);
-	}
-	quickSort(arr, 0, 1000000-1);
-	printf("\n--------------- Sorted Starts here -----------\n");
-	for(i=0;i<100;i++){
-		printf("%d\n", arr[i]);
-	}
+	
+	quickSort(arr, 0, RANGE-1);
+	
 
 }

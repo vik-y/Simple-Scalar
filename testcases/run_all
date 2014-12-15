@@ -1,12 +1,95 @@
 ../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 10
+echo " "
 echo "For 10"
 cat $2 | grep 'miss_rate' | grep dl
+
 ../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 100
+echo " "
 echo "For 100"
 cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 500
+echo " "
+echo "For 500"
+cat $2 | grep 'miss_rate' | grep dl
+
 ../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 1000
+echo " "
 echo "For 1000"
 cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 2000
+echo " "
+echo "For 2000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 5000
+echo " "
+echo "For 5000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 7000
+echo " "
+echo "For 7000"
+cat $2 | grep 'miss_rate' | grep dl
+
 ../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 10000
+echo " "
 echo "For 10000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 15000
+echo " "
+echo "For 15000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 20000
+echo " "
+echo "For 20000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 25000
+echo " "
+echo "For 25000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 30000
+echo " "
+echo "For 30000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 40000
+echo " "
+echo "For 40000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 50000
+echo " "
+echo "For 50000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 60000
+echo " "
+echo "For 60000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 70000
+echo " "
+echo "For 70000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 80000
+echo " "
+echo "For 80000"
+cat $2 | grep 'miss_rate' | grep dl
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 90000
+echo " "
+echo "For 90000"
+cat $2 | grep 'miss_rate' | grep dl
+
+
+../simplesim-3.0/sim-cache -redir:sim $2 -config l3.cfg $1 100000
+echo " "
+echo "For 100000"
 cat $2 | grep 'miss_rate' | grep dl
