@@ -1,74 +1,73 @@
+#include<stdlib.h>
 #include<stdio.h>
-#define MAX 1000000
 
-void mergeSort(int arr[],int low,int mid,int high);
-void partition(int arr[],int low,int high);
+void merge(int arr[], int l, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
 
-int main(){
+    int L[n1], R[n2];
 
-	int merge[MAX],i,n=MAX;
+    for(i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for(j = 0; j < n2; j++)
+        R[j] = arr[m + 1+ j];
 
-	
-	for(i=0;i<n;i++){
-		merge[i] = rand()%1000000;
-	}
+    i = 0;
+    j = 0;
+    k = l;
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k] = L[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
 
-	partition(merge,0,n-1);
+    while (i < n1)
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
 
-	for(i=0;i<100;i++){
-		printf("%d\n",merge[i]);
-	}
-
-	return 0;
+    while (j < n2)
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
 }
 
-void partition(int arr[],int low,int high){
-
-	int mid;
-
-	if(low<high){
-		mid=(low+high)/2;
-		partition(arr,low,mid);
-		partition(arr,mid+1,high);
-		mergeSort(arr,low,mid,high);
-	}
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r)
+    {
+        int m = l+(r-l)/2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+        merge(arr, l, m, r);
+    }
 }
 
-void mergeSort(int arr[],int low,int mid,int high){
 
-	int i,m,k,l,temp[MAX];
 
-	l=low;
-	i=low;
-	m=mid+1;
+int main(int argc, char **argv)
+{
+	int size = atoi(argv[1]), i;
+    int arr[size];
 
-	while((l<=mid)&&(m<=high)){
+    for(i=0;i<size;i++) arr[i] = rand()%1000000;
 
-		if(arr[l]<=arr[m]){
-			temp[i]=arr[l];
-			l++;
-		}
-		else{
-			temp[i]=arr[m];
-			m++;
-		}
-		i++;
-	}
+    mergeSort(arr, 0, size - 1);
 
-	if(l>mid){
-		for(k=m;k<=high;k++){
-			temp[i]=arr[k];
-			i++;
-		}
-	}
-	else{
-		for(k=l;k<=mid;k++){
-			temp[i]=arr[k];
-			i++;
-		}
-	}
-
-	for(k=low;k<=high;k++){
-		arr[k]=temp[k];
-	}
+    return 0;
 }
