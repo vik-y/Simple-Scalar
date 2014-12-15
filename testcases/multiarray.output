@@ -5,9 +5,9 @@ non-commercial use.  No portion of this work may be used by any commercial
 entity, or for any commercial purpose, without the prior written permission
 of SimpleScalar, LLC (info@simplescalar.com).
 
-sim: command line: ../simplesim-3.0/sim-cache -redir:sim file2.output -config l3.cfg multiarray1 
+sim: command line: ../simplesim-3.0/sim-cache -redir:sim multiarray.output -config l3.cfg multiarray1 
 
-sim: simulation started @ Mon Dec 15 15:50:41 2014, options follow:
+sim: simulation started @ Mon Dec 15 15:35:15 2014, options follow:
 
 sim-cache: This simulator implements a functional cache simulator.  Cache
 statistics are generated for a user-selected cache and TLB configuration,
@@ -24,7 +24,7 @@ information is generated.
 -seed                       1 # random number generator seed (0 for timer seed)
 # -q                    false # initialize and terminate immediately
 # -chkpt               <null> # restore EIO trace execution from <fname>
-# -redir:sim     file2.output # redirect simulator output to file (non-interactive only)
+# -redir:sim     multiarray.output # redirect simulator output to file (non-interactive only)
 # -redir:prog          <null> # redirect simulated program output to file
 -nice                       0 # simulator scheduling priority
 -max:inst                   0 # maximum number of inst's to execute

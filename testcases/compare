@@ -1,4 +1,4 @@
 ../simplesim-3.0/sim-cache -redir:sim file1.output -config l3.cfg $1
 ../simplesim-3.0/sim-cache -redir:sim file2.output -config l3.cfg $2
 
-diff -y file1.output file2.output | awk '/|/ &&  /hits/ || /misses/'
+diff -y file1.output file2.output | awk '/|/'
