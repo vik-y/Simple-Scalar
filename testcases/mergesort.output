@@ -7,7 +7,7 @@ of SimpleScalar, LLC (info@simplescalar.com).
 
 sim: command line: ../simplesim-3.0/sim-cache -redir:sim mergesort.output -config l3.cfg mergesort 100000 
 
-sim: simulation started @ Mon Dec 15 23:56:16 2014, options follow:
+sim: simulation started @ Tue Dec 16 11:51:13 2014, options follow:
 
 sim-cache: This simulator implements a functional cache simulator.  Cache
 statistics are generated for a user-selected cache and TLB configuration,
@@ -33,7 +33,7 @@ information is generated.
 -cache:dl3       dl3:256:128:1:l # l3 data cache config, i.e., {<config>|none}
 -cache:il1       il1:64:64:1:l # l1 inst cache config, i.e., {<config>|dl1|dl2|dl3|none}
 -cache:il2       il2:128:64:1:l; # l2 instruction cache config, i.e., {<config>|dl2|none}
--cache:il3               none # l3 instruction cache config, i.e., {<config>|dl3|none}
+-cache:il3       il3:256:128:1:l # l3 instruction cache config, i.e., {<config>|dl3|none}
 -tlb:itlb                none # instruction TLB config, i.e., {<config>|none}
 -tlb:dtlb                none # data TLB config, i.e., {<config>|none}
 -flush                  false # flush caches on system calls
@@ -54,15 +54,16 @@ information is generated.
                 -dtlb dtlb:128:4096:32:r
 
   Cache levels can be unified by pointing a level of the instruction cache
-  hierarchy at the data cache hiearchy using the "dl1" and "dl2" cache
+  hierarchy at the data cache hiearchy using the "dl1" , "dl2" , and "dl3" cache
   configuration arguments.  Most sensible combinations are supported, e.g.,
 
     A unified l2 cache (il2 is pointed at dl2):
       -cache:il1 il1:128:64:1:l -cache:il2 dl2
       -cache:dl1 dl1:256:32:1:l -cache:dl2 ul2:1024:64:2:l
-    A unified l3 cache (il3 is pointed at dl):
-      -cache:il3 il3:128:64:1:l -cache:il3 dl3
-      -cache:dl3 dl1:256:32:1:l -cache:dl3 ul3:1024:64:2:l
+
+    A unified l3 cache (il3 is pointed at dl3):
+      -cache:il1 il1:128:64:1:l -cache:il3 dl3
+      -cache:dl2 dl2:256:32:1:l -cache:dl3 ul3:1024:64:2:l
 
     Or, a fully unified cache hierarchy (il1 pointed at dl1):
       -cache:il1 dl1
@@ -75,8 +76,8 @@ sim: ** starting functional simulation w/ caches **
 sim: ** simulation statistics **
 sim_num_insn              125239717 # total number of instructions executed
 sim_num_refs               52793955 # total number of loads and stores executed
-sim_elapsed_time                  8 # total simulation time in seconds
-sim_inst_rate          15654964.6250 # simulation speed (in insts/sec)
+sim_elapsed_time                  7 # total simulation time in seconds
+sim_inst_rate          17891388.1429 # simulation speed (in insts/sec)
 il1.accesses              125239717 # total number of accesses
 il1.hits                  124839398 # total number of hits
 il1.misses                   400319 # total number of misses
@@ -97,6 +98,16 @@ il2.miss_rate                0.0007 # miss rate (i.e., misses/ref)
 il2.repl_rate                0.0004 # replacement rate (i.e., repls/ref)
 il2.wb_rate                  0.0000 # writeback rate (i.e., wrbks/ref)
 il2.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
+il3.accesses                    291 # total number of accesses
+il3.hits                        157 # total number of hits
+il3.misses                      134 # total number of misses
+il3.replacements                  0 # total number of replacements
+il3.writebacks                    0 # total number of writebacks
+il3.invalidations                 0 # total number of invalidations
+il3.miss_rate                0.4605 # miss rate (i.e., misses/ref)
+il3.repl_rate                0.0000 # replacement rate (i.e., repls/ref)
+il3.wb_rate                  0.0000 # writeback rate (i.e., wrbks/ref)
+il3.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
 dl1.accesses               52794025 # total number of accesses
 dl1.hits                   52081844 # total number of hits
 dl1.misses                   712181 # total number of misses

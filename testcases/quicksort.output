@@ -5,9 +5,9 @@ non-commercial use.  No portion of this work may be used by any commercial
 entity, or for any commercial purpose, without the prior written permission
 of SimpleScalar, LLC (info@simplescalar.com).
 
-sim: command line: ../simplesim-3.0/sim-cache -redir:sim quicksort.output -config l3.cfg quicksort 100000 
+sim: command line: ../simplesim-3.0/sim-cache -redir:sim quicksort.output -config l3.cfg quicksort 1000 
 
-sim: simulation started @ Mon Dec 15 23:54:45 2014, options follow:
+sim: simulation started @ Tue Dec 16 11:53:06 2014, options follow:
 
 sim-cache: This simulator implements a functional cache simulator.  Cache
 statistics are generated for a user-selected cache and TLB configuration,
@@ -54,15 +54,16 @@ information is generated.
                 -dtlb dtlb:128:4096:32:r
 
   Cache levels can be unified by pointing a level of the instruction cache
-  hierarchy at the data cache hiearchy using the "dl1" and "dl2" cache
+  hierarchy at the data cache hiearchy using the "dl1" , "dl2" , and "dl3" cache
   configuration arguments.  Most sensible combinations are supported, e.g.,
 
     A unified l2 cache (il2 is pointed at dl2):
       -cache:il1 il1:128:64:1:l -cache:il2 dl2
       -cache:dl1 dl1:256:32:1:l -cache:dl2 ul2:1024:64:2:l
-    A unified l3 cache (il3 is pointed at dl):
-      -cache:il3 il3:128:64:1:l -cache:il3 dl3
-      -cache:dl3 dl1:256:32:1:l -cache:dl3 ul3:1024:64:2:l
+
+    A unified l3 cache (il3 is pointed at dl3):
+      -cache:il1 il1:128:64:1:l -cache:il3 dl3
+      -cache:dl2 dl2:256:32:1:l -cache:dl3 ul3:1024:64:2:l
 
     Or, a fully unified cache hierarchy (il1 pointed at dl1):
       -cache:il1 dl1
@@ -73,59 +74,59 @@ information is generated.
 sim: ** starting functional simulation w/ caches **
 
 sim: ** simulation statistics **
-sim_num_insn               90444468 # total number of instructions executed
-sim_num_refs               43484875 # total number of loads and stores executed
-sim_elapsed_time                  5 # total simulation time in seconds
-sim_inst_rate          18088893.6000 # simulation speed (in insts/sec)
-il1.accesses               90444468 # total number of accesses
-il1.hits                   90244168 # total number of hits
-il1.misses                   200300 # total number of misses
-il1.replacements             200236 # total number of replacements
+sim_num_insn                 544054 # total number of instructions executed
+sim_num_refs                 261143 # total number of loads and stores executed
+sim_elapsed_time                  1 # total simulation time in seconds
+sim_inst_rate           544054.0000 # simulation speed (in insts/sec)
+il1.accesses                 544054 # total number of accesses
+il1.hits                     541754 # total number of hits
+il1.misses                     2300 # total number of misses
+il1.replacements               2236 # total number of replacements
 il1.writebacks                    0 # total number of writebacks
 il1.invalidations                 0 # total number of invalidations
-il1.miss_rate                0.0022 # miss rate (i.e., misses/ref)
-il1.repl_rate                0.0022 # replacement rate (i.e., repls/ref)
+il1.miss_rate                0.0042 # miss rate (i.e., misses/ref)
+il1.repl_rate                0.0041 # replacement rate (i.e., repls/ref)
 il1.wb_rate                  0.0000 # writeback rate (i.e., wrbks/ref)
 il1.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
-il2.accesses                 200300 # total number of accesses
-il2.hits                     200032 # total number of hits
+il2.accesses                   2300 # total number of accesses
+il2.hits                       2032 # total number of hits
 il2.misses                      268 # total number of misses
 il2.replacements                150 # total number of replacements
 il2.writebacks                    0 # total number of writebacks
 il2.invalidations                 0 # total number of invalidations
-il2.miss_rate                0.0013 # miss rate (i.e., misses/ref)
-il2.repl_rate                0.0007 # replacement rate (i.e., repls/ref)
+il2.miss_rate                0.1165 # miss rate (i.e., misses/ref)
+il2.repl_rate                0.0652 # replacement rate (i.e., repls/ref)
 il2.wb_rate                  0.0000 # writeback rate (i.e., wrbks/ref)
 il2.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
-dl1.accesses               43484945 # total number of accesses
-dl1.hits                   43050522 # total number of hits
-dl1.misses                   434423 # total number of misses
-dl1.replacements             434359 # total number of replacements
-dl1.writebacks               275182 # total number of writebacks
+dl1.accesses                 261213 # total number of accesses
+dl1.hits                     259571 # total number of hits
+dl1.misses                     1642 # total number of misses
+dl1.replacements               1578 # total number of replacements
+dl1.writebacks                 1006 # total number of writebacks
 dl1.invalidations                 0 # total number of invalidations
-dl1.miss_rate                0.0100 # miss rate (i.e., misses/ref)
-dl1.repl_rate                0.0100 # replacement rate (i.e., repls/ref)
-dl1.wb_rate                  0.0063 # writeback rate (i.e., wrbks/ref)
+dl1.miss_rate                0.0063 # miss rate (i.e., misses/ref)
+dl1.repl_rate                0.0060 # replacement rate (i.e., repls/ref)
+dl1.wb_rate                  0.0039 # writeback rate (i.e., wrbks/ref)
 dl1.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
-dl2.accesses                 709605 # total number of accesses
-dl2.hits                     465596 # total number of hits
-dl2.misses                   244009 # total number of misses
-dl2.replacements             243881 # total number of replacements
-dl2.writebacks               165167 # total number of writebacks
+dl2.accesses                   2648 # total number of accesses
+dl2.hits                       2347 # total number of hits
+dl2.misses                      301 # total number of misses
+dl2.replacements                173 # total number of replacements
+dl2.writebacks                  169 # total number of writebacks
 dl2.invalidations                 0 # total number of invalidations
-dl2.miss_rate                0.3439 # miss rate (i.e., misses/ref)
-dl2.repl_rate                0.3437 # replacement rate (i.e., repls/ref)
-dl2.wb_rate                  0.2328 # writeback rate (i.e., wrbks/ref)
+dl2.miss_rate                0.1137 # miss rate (i.e., misses/ref)
+dl2.repl_rate                0.0653 # replacement rate (i.e., repls/ref)
+dl2.wb_rate                  0.0638 # writeback rate (i.e., wrbks/ref)
 dl2.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
-dl3.accesses                 409176 # total number of accesses
-dl3.hits                     337291 # total number of hits
-dl3.misses                    71885 # total number of misses
-dl3.replacements              71629 # total number of replacements
-dl3.writebacks                49769 # total number of writebacks
+dl3.accesses                    470 # total number of accesses
+dl3.hits                        321 # total number of hits
+dl3.misses                      149 # total number of misses
+dl3.replacements                  1 # total number of replacements
+dl3.writebacks                    0 # total number of writebacks
 dl3.invalidations                 0 # total number of invalidations
-dl3.miss_rate                0.1757 # miss rate (i.e., misses/ref)
-dl3.repl_rate                0.1751 # replacement rate (i.e., repls/ref)
-dl3.wb_rate                  0.1216 # writeback rate (i.e., wrbks/ref)
+dl3.miss_rate                0.3170 # miss rate (i.e., misses/ref)
+dl3.repl_rate                0.0021 # replacement rate (i.e., repls/ref)
+dl3.wb_rate                  0.0000 # writeback rate (i.e., wrbks/ref)
 dl3.inv_rate                 0.0000 # invalidation rate (i.e., invs/ref)
 ld_text_base             0x00400000 # program text (code) segment base
 ld_text_size                  28064 # program text (code) size in bytes
@@ -136,9 +137,9 @@ ld_stack_size                 16384 # program initial stack size
 ld_prog_entry            0x00400140 # program entry point (initial PC)
 ld_environ_base          0x7fff8000 # program environment base address address
 ld_target_big_endian              0 # target executable endian-ness, non-zero if big endian
-mem.page_count                  112 # total number of pages allocated
-mem.page_mem                   448k # total size of memory pages allocated
-mem.ptab_misses                 113 # total first level page table misses
-mem.ptab_accesses         448928607 # total page table accesses
+mem.page_count                   15 # total number of pages allocated
+mem.page_mem                    60k # total size of memory pages allocated
+mem.ptab_misses                  15 # total first level page table misses
+mem.ptab_accesses           2879484 # total page table accesses
 mem.ptab_miss_rate           0.0000 # first level page table miss rate
 
